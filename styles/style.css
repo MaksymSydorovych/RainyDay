@@ -295,17 +295,34 @@ h2 {
   }
   .home_img {
     width: 100%;
-
     margin-top: -25%;
   }
 }
+.for_men img,
+.for_women img {
+  width: 60%;
+  height: 60%;
+  margin-left: 7px;
+}
+
 @media screen and (max-width: 500px) {
   .header_text {
-    font-size: 0.8em;
+    font-size: 0.95em;
+  }
+  .for_men img,
+  .for_women img {
+    width: 55%;
+    height: 30%;
+    margin-left: 7px;
+  }
+  .home_text p,
+  h3 {
+    font-size: 18px;
+    margin-top: 20px;
   }
 }
 @media screen and (max-width: 375px) {
   .header_text {
-    font-size: 0.7em;
+    font-size: 0.9em;
   }
 }
