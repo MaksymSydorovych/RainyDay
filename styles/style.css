@@ -3,6 +3,7 @@
   padding: 0;
 }
 /*-----------------navbar------*/
+
 .navbar {
   height: 100px;
   display: flex;
@@ -13,20 +14,39 @@
   z-index: 999;
 }
 #page {
-  font-size: 2em;
+  font-size: 1.4em;
+  text-shadow: 1px 1px rgb(15, 15, 15);
+}
+#page:hover {
+  color: rgb(8, 3, 26);
 }
 .sign_up,
 .cart {
-  width: 15%;
+  width: 13%;
   float: left;
-  background: rgb(215, 231, 215);
+  background: rgb(244, 248, 248);
+  border-radius: 6px;
   margin-top: 15px;
   padding: 10px 20px;
+}
+.sign_up:hover {
+  background: rgb(174, 235, 243);
+  transition: all 0.5s ease-in-out;
+}
+.cart:hover {
+  background: rgb(174, 235, 243);
+  transition: all 0.5s ease-in-out;
+}
+.cart {
+  margin-left: 7px;
 }
 
 .logo {
   width: 40%;
   margin-top: 10px;
+}
+.logo:hover {
+  opacity: 0.6;
 }
 .navbar_container {
   display: flex;
@@ -52,13 +72,14 @@
   height: 100px;
 }
 .navbar_links {
-  color: rgb(3, 85, 3);
+  color: rgb(8, 3, 26);
   display: flex;
   align-items: center;
   justify-content: center;
   text-decoration: none;
   padding: 0 1rem;
   height: 100%;
+  font-family: "Merriweather Sans", sans-serif;
 }
 .navbar_btn {
   display: flex;
@@ -69,19 +90,47 @@
 }
 
 .navbar_links:hover {
-  color: yellowgreen;
-  transition: all 0.5s ease;
+  color: rgb(197, 236, 241);
+  transition: all 0.3s ease;
 }
 /*-------------header-------------*/
-.home_img {
-  width: 100%;
-
-  margin-top: -15%;
+.header {
+  background-image: url(/Images/home.jpeg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 600px;
 }
+
 .header_text {
-  margin: -40% 20%;
   font-size: 2em;
-  text-shadow: honeydew 2em;
+  text-shadow: rgb(175, 226, 175) 2em;
+  display: flex;
+  flex-direction: column-reverse;
+}
+h1 {
+  font-family: "Coda Caption", sans-serif;
+  color: rgb(239, 250, 250);
+  text-shadow: 2px 2px rgb(9, 36, 71);
+}
+h2 {
+  font-family: "Abril Fatface", cursive;
+  color: rgb(239, 250, 250);
+  text-shadow: 2px 2px rgb(9, 36, 71);
+}
+.header_text a {
+  text-decoration: none;
+  font-family: "Abril Fatface", cursive;
+  color: rgb(239, 250, 250);
+  text-shadow: 2px 2px rgb(9, 36, 71);
+  border: 0.3px solid rgb(191, 237, 243, 0.5);
+  border-radius: 10px;
+  padding: 2px;
+  background: rgb(191, 237, 243, 0.3);
+}
+.header_text a:hover {
+  font-size: 1.01em;
+  color: rgb(197, 236, 241);
 }
 #productList {
   margin-top: 15%;
@@ -100,8 +149,53 @@
 .productCard h2 {
   margin-top: 10px;
 }
+/*---------------Main-------------------*/
 
-@media screen and (max-width: 960px) {
+.main {
+  background-image: url(../Images/background.png);
+  width: 100%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  height: 500px;
+  border: 5px solid black;
+  display: flex;
+}
+.main p {
+  font-size: 40px;
+  font-family: "Arimo", sans-serif;
+  font-weight: 700;
+  position: relative;
+}
+.for_men,
+.for_women {
+  padding-top: 2%;
+  width: 30%;
+}
+.for_men img,
+.for_women img {
+  width: 55%;
+  height: 80%;
+  border: 2px solid black;
+  border-radius: 20px;
+  box-shadow: 5px 5px black;
+}
+.home_text {
+  width: 40%;
+}
+.for_men img:hover,
+.for_women img:hover {
+  transition: all 0.6s ease;
+  border: 5px solid #fff;
+  box-shadow: 0px 0px #fff;
+  cursor: pointer;
+}
+
+.main {
+  margin-top: 0;
+}
+
+@media screen and (max-width: 845px) {
   .navbar_container {
     display: flex;
     justify-content: center;
@@ -113,12 +207,15 @@
   }
   .sign_up,
   .cart {
-    width: 10%;
-    background: rgb(215, 231, 215);
+    width: 8%;
     margin-top: 20px;
 
     padding: 10px 20px;
   }
+  .header_text {
+    font-size: 1.3em;
+  }
+
   .navbar_menu {
     display: grid;
     grid-template-columns: auto;
@@ -127,10 +224,16 @@
     position: absolute;
     top: -1000px;
     opacity: 0;
-    transition: all 0.7s ease;
+    transition: all 0.8s ease;
     height: 50vh;
     z-index: -1;
-    background: rgb(247, 243, 243);
+    background: rgb(2, 0, 36);
+    background: linear-gradient(
+      90deg,
+      rgba(2, 0, 36, 1) 0%,
+      rgba(150, 223, 231, 1) 0%,
+      rgba(216, 236, 240, 1) 44%
+    );
   }
   .navbar_menu.active {
     top: 100%;
@@ -159,6 +262,10 @@
     padding-left: 12rem;
     width: 100%;
     display: table-caption;
+  }
+  .navbar_links:hover {
+    color: #fff;
+    text-shadow: 2px 2px rgba(150, 223, 231, 1);
   }
   #mobile-menu {
     position: absolute;
@@ -190,5 +297,15 @@
     width: 100%;
 
     margin-top: -25%;
+  }
+}
+@media screen and (max-width: 500px) {
+  .header_text {
+    font-size: 0.8em;
+  }
+}
+@media screen and (max-width: 375px) {
+  .header_text {
+    font-size: 0.7em;
   }
 }
