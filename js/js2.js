@@ -11,7 +11,7 @@ const queryString = document.location.search;
 const params = new URLSearchParams(queryString);
 const id = params.get("id");
 console.log(id);
-const url = "https://array.maksym.one/wp-json/wc/store/products/" + id = `embed`;
+const url = "https://array.maksym.one/wp-json/wc/store/products/" + id;
 
 async function getDetail() {
 	try {
