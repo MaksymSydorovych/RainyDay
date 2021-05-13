@@ -6,6 +6,7 @@ menu.addEventListener('click', function() {
 
 });
 //featured for CA CMS///////
+
 const url = "https://array.maksym.one/wp-json/wc/store/products/";
 const resultDisplay = document.querySelector('#productList');
 async function getContent(){
@@ -34,3 +35,7 @@ async function getContent(){
 	}
 }
 getContent();
+
+
+
+
