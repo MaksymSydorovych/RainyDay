@@ -6,7 +6,7 @@ menu.addEventListener('click', function() {
 
 });
 ///1
-
+const result = document.querySelector('#detail');
 const queryString = document.location.search;
 const params = new URLSearchParams(queryString);
 const id = params.get("id");
@@ -18,6 +18,10 @@ async function getDetail() {
 	const response = await fetch(url);
 	const detail = await response.json();
 	console.log(detail);
+	result.innerHTML = `<h2>${detail.name}</h2>
+	<img class ="productImg" src="${detail.images[0].src}"/>
+	<p>Price : ${detail.prices.price}</p>
+	`
 	}
 	catch(error) {
 		 console.log(error);
@@ -25,22 +29,3 @@ async function getDetail() {
 	}
 };
 getDetail();
-const resultDisplay = document.querySelector('#detail');
-function createHtml(getDetail){
-	const img = getDetail[id].images[0].src;
-	const name = getDetail[id].name;
-	const price = getDetail[id].prices.price;
-	
-	try {
-		detail.innerHTML = `
-		<p>${name}</p>
-		<img src="${img}"/>
-		<p>${price}</p>
-		
-		`
-	}
-	catch(error){
-		console.log("Can't display")
-	}
-}
-createHtml();
