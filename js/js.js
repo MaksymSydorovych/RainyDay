@@ -1,41 +1,45 @@
-const menu = document.querySelector('#mobile-menu')
-const menuLinks = document.querySelector('.navbar_menu')
-menu.addEventListener('click', function() {
-	menu.classList.toggle('is-active');
-	menuLinks.classList.toggle('active');
-
-});
-//featured for CA CMS///////
-
-const url = "https://array.maksym.one/wp-json/wc/store/products/";
-const resultDisplay = document.querySelector('#productList');
-async function getContent(){
-	try{
-		const response = await fetch(url);
-		const resultsJackets = await response.json();
-		console.log(resultsJackets);
-		for (let i = 0; i < resultsJackets.length; i++){
-			let name = resultsJackets[i].name;
-			let img = resultsJackets[i].images[0].src;
-			let id = resultsJackets[i].id;
-			let price = resultsJackets[i].prices.price;
-			console.log(name, img, id, price);
-			resultDisplay.innerHTML += `<a href="detail.html?id=${id}">
-			<div class="productCard">
-			<img class ="productImg" src="${img}"/>
-			<h2>${name}</h2>
-			<h3>${price}kr</h3>
-			<a class="productCardButton" href="#">add to cart</a>
-			</div></a>`;
-
-		}
-	}
-	catch(error){
-		console.log("Can't display array")
+"use strict"
+const hamburger = document.getElementById("hamburger");
+const closeBurger = document.getElementById("close-burger");
+const navBar = document.getElementById("nav-bar");
+const human = document.querySelector(".human");
+hamburger.addEventListener("click", () => {
+	navBar.classList.toggle("show");
+	if (navBar.classList.contains("show")){
+		hamburger.style.display = "none";
+		closeBurger.style.display = "block";
+		
 	}
 }
-getContent();
+);
+closeBurger.addEventListener("click", () => {
+navBar.classList.remove("show");
 
+hamburger.style.display = "block";
+closeBurger.style.display = "none";
+});
 
-
+//picture
+const picture = document.querySelector(".picture");
+if(picture){
+	document.addEventListener("mousemove", parallax);
+		const pictureContainer = document.querySelector(".picture-container");
+		const clouds = document.querySelector(".clouds");
+		const mountains = document.querySelector(".mountains");
+		const human = document.querySelector(".human");
+		function parallax(e){
+			const widthH = (window.innerWidth - e.pageX*0.1);
+			const heightH = (window.innerHeight - e.pageY*0.1);
+			const widthC = (window.innerWidth - e.pageX*0.3);
+			const heightC = (window.innerHeight - e.pageY*0.3);
+			const widthM = (window.innerWidth - e.pageX*0.2);
+			const heightM = (window.innerHeight - e.pageY*0.2);
+			
+			human.style.transform = `translateX(${widthH / 100}%) translateY(${heightH / 100}%)`;
+			clouds.style.transform = `translateX(${widthC / 70}%) translateY(${heightC / 70}%)`;
+			mountains.style.transform = `translateX(${widthM / 80}%) translateY(${heightM / 80}%)`;
+			
+		}
+	
+	}
 

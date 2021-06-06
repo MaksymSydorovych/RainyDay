@@ -18,6 +18,7 @@ async function getDetail() {
 	const response = await fetch(url);
 	const detail = await response.json();
 	console.log(detail);
+	document.title = `${document.title} ${detail.title.rendered}`;
 	result.innerHTML = `<h2>${detail.name}</h2>
 	<img class ="productImg" src="${detail.images[0].src}"/>
 	<p>Price : ${detail.prices.price}</p>
@@ -28,4 +29,26 @@ async function getDetail() {
 		 
 	}
 };
+const showImage = document.querySelector(".image-show");
+    const preview = document.querySelector(".post-container img");
+    const original = document.querySelector(".max-img");
+
+    preview.addEventListener("click", () => {
+      showImage.classList.add("open");
+      original.classList.add("open");
+    });
+
+    showImage.addEventListener("click", (e) => {
+      if (e.target.classList.contains("image-show")) {
+        showImage.classList.remove("open");
+        original.classList.remove("open");
+      }
+    });
+
+    document.title = json.title.rendered;
+  } catch (error) {
+    detailContainer.innerHTML = displayError();
+    console.log(error);
+  }
 getDetail();
+
